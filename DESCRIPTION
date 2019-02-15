@@ -1,6 +1,6 @@
 Package: neo4r
 Title: A 'Neo4J' Driver
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     c(person(given = "Colin",
              family = "Fay",
@@ -32,10 +32,10 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.0
 NeedsCompilation: no
-Packaged: 2019-01-18 22:59:45 UTC; colin
+Packaged: 2019-02-15 22:04:51 UTC; colin
 Author: Colin Fay [cre, aut] (<https://orcid.org/0000-0001-7343-1846>),
   ThinkR [cph],
   Neo4J [spn]
 Maintainer: Colin Fay <contact@colinfay.me>
 Repository: CRAN
-Date/Publication: 2019-01-27 23:20:03 UTC
+Date/Publication: 2019-02-15 22:20:03 UTC

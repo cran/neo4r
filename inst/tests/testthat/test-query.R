@@ -2,29 +2,30 @@ context("test-query")
 
 test_that("constraints works", {
   cons <- con$get_constraints()
-  expect_equal(nrow(cons), 4)
+  expect_equal(nrow(cons), 7)
   expect_equal(ncol(cons), 3)
   expect_equal(names(cons), c("label", "type", "property_keys"))
 })
 
 test_that("queries rows works", {
-  rows <- "MATCH (b:Band) WHERE b.formed = 1990 RETURN *;" %>%
+  rows <- "MATCH (b:Band) RETURN *;" %>%
     call_neo4j(con)
   expect_is(rows, "list")
   rows <- rows[[1]]
-  expect_equal(nrow(rows), 1)
+  expect_equal(nrow(rows), 13)
   expect_equal(ncol(rows), 2)
-  expect_equal(rows$formed, 1990)
   expect_is(rows$formed, "integer")
   expect_equal(names(rows), c("name", "formed"))
   rows <- "MATCH (b:Band) WHERE b.formed < 1995 RETURN *;" %>%
     call_neo4j(con)
   expect_is(rows, "list")
   rows <- rows[[1]]
-  expect_equal(nrow(rows), 1)
+  expect_equal(nrow(rows),13)
   expect_equal(ncol(rows), 2)
   expect_is(rows$formed, "integer")
   expect_equal(names(rows), c("name", "formed"))
+  qq <- "MATCH (r:Band) -[f:IS_FROM] -> (c:City {name:'Oslo'}) RETURN *;" %>%
+    call_neo4j(con)
 })
 
 test_that("queries graphs works", {
